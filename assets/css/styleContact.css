@@ -1,0 +1,461 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*Шапка*/
+.header {
+    padding-top: 20px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Лого*/
+.header__logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+/*Ссылки справа*/
+.nav {
+    font-size: 20px;
+}
+.nav__photo{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 15px;
+    position: relative;
+}
+.nav__photo__1{
+    margin-right: 20px;
+}
+.wrapper.active-photo{
+    transform: scale(1);
+}
+.nav__link {
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 15px;
+    position: relative;
+
+    color:#fff;
+    text-decoration: none;
+    transition: color .1s linear;
+}
+
+.nav__link:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    
+
+    background-color: #fce38a;
+    opacity: 0;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+
+    transition: color .1s linear;
+
+}
+
+.nav__link:hover{
+    color: #fce38a;
+}
+.nav__link:hover:after{
+    opacity: 1;
+}
+
+
+/*Первая страница*/ 
+
+.intro__inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+   /* justify-content: center;*/
+
+    width: 100%;
+    height: 100vh;
+
+    background: url(../images/bayphotoshop.jpg) center no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover ;
+}
+
+.intro__suptitle {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 20px;
+    color: #fff;
+}
+img{
+    image-rendering: optimizeQuality;
+}
+.intro__title {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.information{
+    padding-top: 50px ;
+}
+.info__items{
+    display: flex;
+}
+.info__about{
+    padding-right: 70px;
+    padding-left:100px ;
+    columns: 1;
+}
+.info__name{
+    font-size: 30px;
+    color: #fff;
+}
+.info__text{
+   font-size: 20px;
+   color: #fff;
+}
+.information__networks{
+    padding-top: 10px;
+}
+.networks__icons{
+    margin-right: 10px;
+}
+
+
+/* Вход-Регистация */
+.wrapper {
+    position: fixed;
+    top: 25%;
+    left: 39.5%;
+    width: 400px;
+    height: 440px;
+    z-index: 1000;
+    background: #fff;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+.wrapper.active{
+    height: 520px;
+}
+.wrapper .form-box__login{
+    transition: transform .18s ease;
+    transition: translateX(0);
+}
+.wrapper.active .form-box__login{
+    transition: none;
+    transform: translateX(-400px);
+}
+.wrapper .form-box__register{
+    position: absolute;
+    transition: none;
+    transform: translate(400px);
+}
+.wrapper.active .form-box__register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.form-box__login{
+    width: 100%;
+    padding: 40px;
+}
+
+.icon__close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #333;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 15px ;
+    cursor: pointer;
+    z-index: 1;
+}
+.login {
+    font-size: 25px;
+    text-align: center;
+}
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #333;
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    font-size: 12px;
+    color: #333;
+    transform: translateY(-50%);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    color: #333;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 14px;
+    color: #333;
+    line-height: 57px;
+}
+.remember-forgot{
+    font-size: 11px;
+    color: #333;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.remember-forgot label input{
+    accent-color: #333;
+    margin-right: 3px;
+}
+.remember-forgot a{
+    color: #333;
+    text-decoration: none;
+    margin-top: 5px;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+.wrapper__btn {
+    width: 100%;
+    height: 45px;
+    background: #333;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+}
+.wrapper__btn__register{
+    width: 100%;
+    height: 45px;
+    background: #333;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+}
+.register{
+    text-align: center;
+}
+.login-register{
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p a{
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+.login-register p a:hover{
+    text-decoration: underline;
+}
+.msg{
+    border: 2px solid rgb(156, 16, 156);
+    border-radius: 3px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.none{
+    display: none;
+}
+.error{
+    border-bottom: 2px solid #9b3939;
+}
+
+/* Корзина */
+.cart{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 360px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+    background: #fff;
+    box-shadow: -2px 0  4px hsl(0 4% 15% / 10%);
+    border: 1px solid #ffbc7e;
+    transition: .3s;
+}
+.cart.active {
+    right: 0;
+    background: #fff;
+    color: #333;
+    transition: .4s;
+}
+.cart__title{
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.cart__box{
+    display: grid;
+    grid-template-columns: 32% 50% 18%;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px ;
+}
+.cart__image{
+    object-fit: contain;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+}
+.detail__box{
+    display: grid;
+    row-gap: .5rem;
+}
+.cart__product__title{
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.cart__product__price{
+    font-weight: 700;
+}
+.cart__quantity{
+    border: 1px solid #333;
+    outline-color: #ffbc7e;
+    width: 2.4rem;
+    text-align: center;
+    font-size: 1rem;
+}
+.cart__remove{
+    cursor: pointer;
+    margin-top: 80px;
+    height: 20px;
+    width: 20px;
+}
+.total{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+    border-top: 1px solid #333;
+}
+.total__title{
+    font-size: 16px;
+    font-weight: 600;
+}
+.total__price{
+    margin-left: 8px;
+    font-size: 16px;
+}
+.btn__buy{
+    display: flex;
+    margin: 24px auto 0 auto;
+    padding: 12px 20px;
+    border: none;
+    background-color: #b9f0e6;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer; 
+}
+.cart__close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #333;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 15px ;
+    cursor: pointer;
+    z-index: 1;
+}
